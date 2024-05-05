@@ -1,0 +1,93 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Correcting zooming issue -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Library untuk VR membangun 3D -->
+    <script src="./js/aframe/aframe.min.js"></script>
+    <script src="./node_modules/three/build/three.module.min.js"></script>
+    <!-- Library untuk AR yang melakukan pengenalan marker dan menyematkan kamera-->
+    <script src="./js/arjs/aframe-ar.js"></script>
+    <script src="./node_modules//three/build/three.module.js"></script>
+    <title>Yos sianipar</title>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
+
+        <!-- Tambahkan komponen cursor pada a-scene -->
+        <a-entity cursor="rayOrigin: mouse" raycaster="objects: [a-gltf-model]"></a-entity>
+
+
+
+        <!-- Gunakan a-marker dengan tipe 'pattern' dan URL menuju file .patt -->
+        <a-marker type="pattern" url="./marker/markpatt/pattern-1.patt">
+            <a-gltf-model src="./gltf/stylized/scene.gltf" rotation="280 0 280" position="0 0.3 0"
+                scale="0.3 0.3 0.3"></a-gltf-model>
+            <a-text value="Patung cewe" position="0 .5 .6" rotation="-90 0 0" color="orange" align="center"></a-text>
+        </a-marker>
+
+        <a-marker type="pattern" url="./marker/markpatt/pattern-2.patt">
+            <a-gltf-model src="./gltf/tengkorak/scene.gltf" rotation="280 0 280" position="0 0.3 0"
+                scale="0.3 0.3 0.3"></a-gltf-model>
+            <a-text value="tengkorak position=" 0 .5 .6" rotation="-90 0 0" color="orange" align="center"></a-text>
+        </a-marker>
+        <a-marker type="pattern" url="./marker/markpatt/pattern-3.patt">
+            <a-box position="0 0.5 0" material="color: orange; opacity: 0.5;">
+                <a-torus-knot scale=".2 .2 .2" color="white"
+                    animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear;"></a-torus-knot>
+                <a-text value=" Hiro 3" position="0 .5 .6" rotation="-90 0 0" color="orange" align="center"></a-text>
+            </a-box>
+        </a-marker>
+        <a-marker type="pattern" url="./marker/markpatt/pattern-4.patt">
+            <a-box position="0 0.5 0" material="color: orange; opacity: 0.5;">
+                <a-torus-knot scale=".2 .2 .2" color="white"
+                    animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear;"></a-torus-knot>
+                <a-text value=" Hiro 4" position="0 .5 .6" rotation="-90 0 0" color="orange" align="center"></a-text>
+            </a-box>
+        </a-marker>
+        <a-marker type="pattern" url="./marker/markpatt/pattern-5.patt">
+            <a-box position="0 0.5 0" material="color: orange; opacity: 0.5;">
+                <a-torus-knot scale=".2 .2 .2" color="white"
+                    animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear;"></a-torus-knot>
+                <a-text value=" Hiro 5" position="0 .5 .6" rotation="-90 0 0" color="orange" align="center"></a-text>
+            </a-box>
+        </a-marker>
+        <a-marker type="pattern" url="./marker/markpatt/pattern-6.patt">
+            <a-box position="0 0.5 0" material="color: orange; opacity: 0.5;">
+                <a-torus-knot scale=".2 .2 .2" color="white"
+                    animation="property: rotation; to: 360 360 360; loop: true; dur: 10000; easing: linear;"></a-torus-knot>
+                <a-text value=" Hiro 6" position="0 .5 .6" rotation="-90 0 0" color="orange" align="center"></a-text>
+            </a-box>
+        </a-marker>
+        <a-marker type="pattern" url="./marker/markpatt/pattern-7.patt">
+            <a-gltf-model src="./gltf/piano/scene.gltf" rotation="280 60 280" position="0 0.3 0"
+                scale="0.1 0.1 0.1"></a-gltf-model>
+            <a-text value="Piano" position="0 .5 .6" rotation="-90 0 0" color="orange" align="center"></a-text>
+
+        </a-marker>
+        <a-marker type="pattern" url="./marker/markpatt/pattern-8.patt">
+            <a-gltf-model src="./gltf/headphonepink/scene.gltf" rotation="280 60 280" position="0 0.3 0"
+                scale="0.1 0.1 0.1"></a-gltf-model>
+            <a-text value="Patung cewe" position="0 .5 .6" rotation="-90 0 0" color="orange" align="center"></a-text>
+
+        </a-marker>
+        <a-marker type="pattern" url="./marker/markpatt/pattern-9.patt">
+            <a-gltf-model src="./gltf/piano/scene.gltf" rotation="280 60 280" position="0 0.3 0"
+                scale="0.1 0.1 0.1"></a-gltf-model>
+            <a-text value="Piano" position="0 .5 .6" rotation="-90 0 0" color="orange" align="center"></a-text>
+
+        </a-marker>
+        <a-marker type="pattern" url="./marker/markpatt/pattern-10.patt">
+            <a-gltf-model src="./gltf/piano/scene.gltf" rotation="280 60 280" position="0 0.3 0"
+                scale="0.1 0.1 0.1"></a-gltf-model>
+            <a-text value="Piano" position="0 .5 .6" rotation="-90 0 0" color="orange" align="center"></a-text>
+
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
+</html>
