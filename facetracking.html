@@ -1,0 +1,162 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const list = [
+                "glasses1",
+                "glasses2",
+                "hat1",
+                "hat2",
+                "romahelmet",
+                "mahkotaa",
+                "mahkotamedusa",
+                "samuraihelm",
+                "medivalhelm"
+
+            ];
+            const visibles = [false, false, false, false, false, false, false, false];
+            const setVisible = (button, entities, visible) => {
+                if (visible) {
+                    button.classList.add("selected");
+                } else {
+                    button.classList.remove("selected");
+                }
+                entities.forEach((entity) => {
+                    entity.setAttribute("visible", visible);
+                });
+            }
+            list.forEach((item, index) => {
+                const button = document.querySelector("#" + item);
+                const entities = document.querySelectorAll("." + item + "-entity");
+                setVisible(button, entities, visibles[index]);
+                button.addEventListener('click', () => {
+                    visibles[index] = !visibles[index];
+                    setVisible(button, entities, visibles[index]);
+                });
+            });
+        })
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .example-container {
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .options-panel {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+
+        .options-panel img {
+            border: solid 2px;
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .options-panel img.selected {
+            border-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="example-container">
+        <div class="options-panel">
+            <img id="hat1"
+                src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/hat/thumbnail.png" />
+            <img id="hat2"
+                src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/hat2/thumbnail.png" />
+            <img id="glasses1"
+                src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/glasses/thumbnail.png" />
+            <img id="glasses2"
+                src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/glasses2/thumbnail.png" />
+
+            <img id="romahelmet" src="/Object/image/viking.jpg" />
+            <img id="mahkotaa" src="/Object/image/mahkota.png" />
+            <img id="mahkotamedusa" src="/Object/image/mahkotamedusa.png" />
+            <img id="samuraihelm" src="/Object/image/samurai.jpg" />
+            <img id="medivalhelm" src="/Object/image/medival.jpg" />
+        </div>
+        <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights"
+            vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+            <a-assets>
+                <a-asset-item id="headModel"
+                    src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/sparkar/headOccluder.glb"></a-asset-item>
+                <a-asset-item id="glassesModel"
+                    src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/glasses/scene.gltf"></a-asset-item>
+                <a-asset-item id="glassesModel2"
+                    src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/glasses2/scene.gltf"></a-asset-item>
+                <a-asset-item id="hatModel"
+                    src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/hat/scene.gltf"></a-asset-item>
+                <a-asset-item id="hatModel2"
+                    src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/hat2/scene.gltf"></a-asset-item>
+                <a-asset-item id="mahkota" src="/Object/crown/scene.gltf"></a-asset-item>
+                <a-asset-item id="medusa" src="/Object/medusa/crown__ornament.glb"></a-asset-item>
+                <a-asset-item id="romahe" src="/Object/helm/viking.glb"></a-asset-item>
+                <a-asset-item id="samurai" src="/Object/helm/samurai_helmet.glb"></a-asset-item>
+                <a-asset-item id="medival" src="/Object/helm/medieval_helmet_with_spikes.glb"></a-asset-item>
+            </a-assets>
+            <a-camera active="false" position="0 0 0"></a-camera>
+            <!-- head occluder -->
+            <a-entity mindar-face-target="anchorIndex: 168">
+                <a-gltf-model mindar-face-occluder position="0 -0.3 0.15" rotation="0 0 0" scale="0.065 0.065 0.065"
+                    src="#headModel"></a-gltf-model>
+            </a-entity>
+            <a-entity mindar-face-target="anchorIndex: 10">
+                <a-gltf-model rotation="0 -0 0" position="0 1.0 -0.5" scale="0.35 0.35 0.35" src="#hatModel"
+                    class="hat1-entity" visible="false"></a-gltf-model>
+            </a-entity>
+            <a-entity mindar-face-target="anchorIndex: 10">
+                <a-gltf-model rotation="0 -0 0" position="0 -0.2 -0.5" scale="0.008 0.008 0.008" src="#hatModel2"
+                    class="hat2-entity" visible="false"></a-gltf-model>
+            </a-entity>
+            <a-entity mindar-face-target="anchorIndex: 168">
+                <a-gltf-model rotation="0 -0 0" position="0 0 0" scale="0.01 0.01 0.01" src="#glassesModel"
+                    class="glasses1-entity" visible="false"></a-gltf-model>
+            </a-entity>
+            <a-entity mindar-face-target="anchorIndex: 168">
+                <a-gltf-model rotation="0 -90 0" position="0 -0.3 0" scale="0.6 0.6 0.6" src="#glassesModel2"
+                    class="glasses2-entity" visible="false"></a-gltf-model>
+            </a-entity>
+            <a-entity mindar-face-target="anchorIndex: 168">
+                <a-gltf-model rotation="0 -0 0" position="0 0.3 -1" scale="0.7 1 1" src="#mahkota"
+                    class="mahkotaa-entity" visible="false"></a-gltf-model>
+            </a-entity>
+            <a-entity mindar-face-target="anchorIndex: 90">
+                <a-gltf-model rotation="0 0 0" position="0.1 -0.8 -0.4" scale="0.6 0.6 0.5" src="#romahe"
+                    class="romahelmet-entity" visible="false"></a-gltf-model>
+            </a-entity>
+            <a-entity mindar-face-target="anchorIndex: 90">
+                <a-gltf-model rotation="0 0 0" position="-3 -0.7 0.4" scale="0.3 0.3 0.3" src="#samurai"
+                    class="samuraihelm-entity" visible="false"></a-gltf-model>
+            </a-entity>
+            <a-entity mindar-face-target="anchorIndex: 90">
+                <a-gltf-model rotation="0 0 0" position="0.1 -0.6 -0.4" scale="6 6 6" src="#medival"
+                    class="medivalhelm-entity" visible="false"></a-gltf-model>
+            </a-entity>
+            <a-entity mindar-face-target="anchorIndex: 168">
+                <a-gltf-model rotation="0 -0 0" position="0 0.3 -0.5" scale="1.2 1 1" src="#medusa"
+                    class="mahkotamedusa-entity" visible="false"></a-gltf-model>
+            </a-entity>
+
+
+
+        </a-scene>
+    </div>
+</body>
+
+</html>
