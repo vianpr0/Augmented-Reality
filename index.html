@@ -13,128 +13,47 @@
     <meta property="og:image" content="https://www.contoh.com/gambar.jpg">
     <meta property="og:url" content="https://iyos.my.id">
     <meta name="description" content="Yos sianipar Argumented Reality">
+    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
-<body>
-    <div class="title">
-        <h1>Argumented Reality<br /> Yosa Sianipar</h1>
+<body class="bg-white">
+    <div class="bg-whiste py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+            <div class="mx-auto flex max-w-xl flex-col items-center text-center">
+                <p class="mb-4 font-semibold text-indigo-500 md:mb-6 md:text-lg xl:text-xl">Argumented Reality
+                    Yosa Sianipar</p>
+
+                <h1 class="mb-8 text-3xl font-bold text-black sm:text-4xl md:mb-12 md:text-5xl">Revolutionary </h1>
+
+                <div class="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
+                    <a href="/imagetracking.html"
+                        class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">
+                        Image Tracking</a>
+
+                    <a href="/facetracking.html"
+                        class="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
+                        Face Tracking</a>
+                    <a href="/markerimage.html"
+                        class="inline-block rounded-lg bg-green-600 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
+                        Marker Image</a>
+                </div>
+
+            </div>
+        </div>
     </div>
-    <div class="container">
-        <ul class="menu">
-            <li><a href="/imagetracking.html" target="_blank">Image Tracking</a></li>
-            <li><a href="/facetracking.html" target="_blank">Face Tracking</a></li>
-            <li><a href="/markerimage.html" target="_blank">Marker Image</a></li>
-        </ul>
-    </div>
-    <div class="scan">
-        <a href="https://github.com/vianpr0/Augmented-Reality/tree/imagetraking/Object/imagetraking"
-            target="_blank"><button>Scan image
-                untuk Image Tracking</button></a>
-        <a href="https://github.com/vianpr0/Augmented-Reality/tree/imagetraking/marker/markimg"
-            target="_blank"><button>Scan image untuk
-                Image Marker</button></a>
+
+    <div class="text-center gap-2">
+        <a href=" https://github.com/vianpr0/Augmented-Reality/tree/imagetraking/Object/imagetraking" target="_blank"
+            class="inline-block rounded-lg bg-green-600 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
+            Scan image
+            untuk Image Tracking</a>
+        <a href="https://github.com/vianpr0/Augmented-Reality/tree/imagetraking/marker/markimg" target="_blank"
+            class="inline-block rounded-lg mt-5 bg-green-600 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
+            Scan image untuk
+            Image Marker</a>
+
     </div>
 </body>
-<style>
-    .container {
-        display: flex;
-        /* margin: auto; */
-        justify-content: center;
-        /* margin-top: 200px; */
-        align-items: center;
-    }
-
-    .menu {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    .menu li {
-        margin: 0 10px;
-    }
-
-    .menu li a {
-        text-decoration: none;
-        color: #000;
-        padding: 10px;
-        border: 1px solid #000;
-        border-radius: 5px;
-    }
-
-    .menu li a:hover {
-        background-color: #000;
-        color: #fff;
-    }
-
-    .title {
-        justify-content: center;
-        text-align: center;
-        margin-top: 200px;
-    }
-
-    .scan {
-        justify-content: center;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    button {
-        padding: 10px;
-        background-color: blue;
-        color: #fff;
-        border-radius: 6px;
-    }
-
-    button:hover {
-        background-color: chartreuse;
-        color: #000;
-        cursor: pointer;
-    }
-
-    @media (max-width: 480px) {
-        .container {
-            display: blosck;
-            width: 100%;
-            padding: 0 10px;
-            margin: 0 auto;
-
-        }
-
-        .menu {
-            list-style: none;
-            padding: px;
-            margin: 0px;
-            display: block;
-            justify-content: center;
-        }
-
-        .menu li {
-            justify-content: center;
-            padding: 20px;
-            margin: 0 auto;
-        }
-
-        .menu li a {
-            text-decoration: none;
-            color: #000;
-            padding: 10px;
-            border: 1px solid #000;
-            border-radius: 5px;
-
-        }
-
-        button {
-            padding: 20px;
-            background-color: blue;
-            color: #fff;
-            border-radius: 6px;
-            margin-bottom: 10px;
-        }
-    }
-</style>
 
 </html>
