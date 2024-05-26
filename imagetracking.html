@@ -1,16 +1,81 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <style>
+        [x-cloak] {
+            display: none
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 </head>
 
-<body>
-    <a-scene mindar-image="imageTargetSrc: /Object/tr4.mind; maxTrack: 8" color-space="sRGB"
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+    <!-- Kontainer untuk UI -->
+    <div class="absolute top-20 left-70 p-4 text-center justify-center">
+        <!-- Tombol untuk menambahkan objek AR -->
+        <button class="bg-blue-500 hover:bg-blue-700 text-center text-white font-bold py-2 px-4 rounded">
+            <h1 x-data="{
+            startingAnimation: { opacity: 0, scale: 4 },
+            endingAnimation: { opacity: 1, scale: 1, stagger: 0.07, duration: 1, ease: 'expo.out' },
+            addCNDScript: true,
+            animateText() {
+            $el.classList.remove('invisible');
+            gsap.fromTo($el.children, this.startingAnimation, this.endingAnimation);
+            },
+            splitCharactersIntoSpans(element) {
+            text = element.innerHTML;
+            modifiedHTML = [];
+            for (var i = 0; i < text.length; i++) {
+            attributes = '';
+            if(text[i].trim()){ attributes = 'class=\'inline-block\''; }
+            modifiedHTML.push('<span ' + attributes + '>' + text[i] + '</span>');
+            }
+            element.innerHTML = modifiedHTML.join('');
+            },
+            addScriptToHead(url) {
+            script = document.createElement('script');
+            script.src = url;
+            document.head.appendChild(script);
+            }
+            }" x-init="
+            splitCharactersIntoSpans($el);
+            if(addCNDScript){
+            addScriptToHead('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js');
+            }
+            gsapInterval = setInterval(function(){
+            if(typeof gsap !== 'undefined'){
+            animateText();
+            clearInterval(gsapInterval);
+            }
+            }, 5);
+            " class="invisible block text-3xl font-bold custom-font">
+                Scan Object AR
+            </h1>
+        </button>
+        <!-- Contoh menu dropdown -->
+
+    </div>
+    <div class="absolute bottom-20 left-70 p-4 text-center justify-center">
+        <!-- Tombol untuk menambahkan objek AR -->
+        <button class="bg-blue-500 hover:bg-blue-700 text-center text-white font-bold py-2 px-4 rounded">
+            Yosa
+        </button>
+        <!-- Contoh menu dropdown -->
+
+    </div>
+
+    <!-- A-Frame Scene -->
+    <a-scene mindar-image="imageTargetSrc: /Object/oro.mind;  maxTrack: 8" color-space="sRGB"
         renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: false">
+
+        <!-- Aset Model 3D -->
         <a-assets>
             <a-asset-item id="board" src="/Object/Boat.glb"></a-asset-item>
             <a-asset-item id="eart" src="/Object/Earth.glb"></a-asset-item>
@@ -20,34 +85,65 @@
             <a-asset-item id="monkey" src="/Object/Monkey.glb"></a-asset-item>
             <a-asset-item id="piramid" src="/Object/Pyramid.glb"></a-asset-item>
             <a-asset-item id="teko" src="/Object/teko.glb"></a-asset-item>
+
+            <!-- Tambahkan aset model 3D lainnya sesuai dengan kebutuhan -->
         </a-assets>
 
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+        <!-- Kamera -->
+        <a-camera position="0 1.6 0" look-controls="enabled: true"></a-camera>
 
+        <!-- Sumber Cahaya -->
+        <a-light type="ambient" color="#ffffff" intensity="0.5"></a-light>
+        <a-light type="directional" color="#ffffff" intensity="0.5" position="-1 2 1"></a-light>
+
+        <!-- Objek AR -->
         <a-entity mindar-image-target="targetIndex: 0">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="5 5 5" src="#monkey" animation-mixer>
+            <a-gltf-model rotation="0 45 0" position="0 -0.1 0" scale="5 5 5" src="#monkey"
+                animation-mixer></a-gltf-model>
+            <a-text value="Mongkey" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 1">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.5 0.5 0.5" src="#piramid" animation-mixer>
+            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.5 0.5 0.5" src="#piramid"
+                animation-mixer></a-gltf-model>
+            <a-text value="Piramid" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 2">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#teko" animation-mixer>
+            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#teko"
+                animation-mixer></a-gltf-model>
+            <a-text value="Teko" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 3">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="15 15 15" src="#board" animation-mixer>
+            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="15 15 15" src="#board"
+                animation-mixer></a-gltf-model>
+            <a-text value="Board" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 4">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#car" animation-mixer>
+            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#car"
+                animation-mixer></a-gltf-model>
+            <a-text value="Car" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 5">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="10 10 10" src="#diamon" animation-mixer>
+            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="10 10 10" src="#diamon"
+                animation-mixer></a-gltf-model>
+            <a-text value="Diamon" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 6">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.5 0.5 0.5" src="#eart" animation-mixer>
+            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.5 0.5 0.5" src="#eart"
+                animation-mixer></a-gltf-model>
+            <a-text value="Eart" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 7">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="5 5 5" src="#ekor" animation-mixer>
+            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="5 5 5" src="#ekor"
+                animation-mixer></a-gltf-model>
+            <a-text value="Ekor hiu" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
         </a-entity>
+        <a-entity mindar-image-target="targetIndex: 8">
+            <a-text value="Yos Sianipar" position="0 -0.1 0" align="center" color="#FFFFFF"></a-text>
+        </a-entity>
+
+        <!-- Box 3D -->
+        <!-- <a-box position="1 0 -2" depth="1" height="1" width="1" color="red"></a-box> -->
+
     </a-scene>
 </body>
 

@@ -7,3 +7,4 @@ Gambar Marker : https://github.com/vianpr0/Augmented-Reality/tree/imagetraking/m
 
 # Image Tracking 
 Gamrbar Tracking : https://github.com/vianpr0/Augmented-Reality/tree/imagetraking/Object/imagetraking
+Object/imagetraking/yosa.png
