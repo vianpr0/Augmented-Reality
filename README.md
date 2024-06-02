@@ -9,4 +9,4 @@ Selamat datang di Proyek Web AR.js! Repositori ini berisi code untuk aplikasi au
 https://drive.google.com/file/d/1a4wSJHBAmH2P93mBs7xuPtDen7TgPqxq/view?usp=sharing
 
 # Kartu Identitas
-![Alt text]([image link](https://raw.githubusercontent.com/vianpr0/Augmented-Reality/imagetraking/Object/imgTrackingnew/1.png))
+![Teks Alt](https://raw.githubusercontent.com/vianpr0/Augmented-Reality/imagetraking/Object/imgTrackingnew/1.png)
