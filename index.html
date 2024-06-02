@@ -14,46 +14,104 @@
     <meta property="og:url" content="https://iyos.my.id">
     <meta name="description" content="Yos sianipar Argumented Reality">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+
 
 </head>
 
 <body class="bg-white">
-    <div class="bg-whiste py-6 sm:py-8 lg:py-12">
-        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-            <div class="mx-auto flex max-w-xl flex-col items-center text-center">
-                <p class="mb-4 font-semibold text-indigo-500 md:mb-6 md:text-lg xl:text-xl">Argumented Reality
-                    Yosa Sianipar</p>
 
-                <h1 class="mb-8 text-3xl font-bold text-black sm:text-4xl md:mb-12 md:text-5xl">Revolutionary </h1>
 
-                <div class="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
-                    <a href="/imagetracking.html"
-                        class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">
-                        Image Tracking</a>
+    <div id="splash-screen" class="fixed inset-0 flex items-center justify-center bg- text-white">
+        <div
+            class=" bg-blue-900 w-60 h-60 rounded-lg shadow-2xl outline outline-offset-4 outline-blue-600 shadow-blue-500 ou text-center flsex justify-center items-center">
+            <img class="mx-auto mt-5 animate__animated animate__bounceInDown w-32 bg-reSd-500 " src="./img/logoa.png"
+                alt="">
+            <h1 class="animate__animated animate__lightSpeedInRight text-4xl">AR YOS</h1>
+        </div>
+        <!-- <h1 class="animate__animated animate__bounce">An animated element</h1> -->
+    </div>
 
-                    <a href="/facetracking.html"
-                        class="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
-                        Face Tracking</a>
-                    <a href="/markerimage.html"
-                        class="inline-block rounded-lg bg-green-600 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
-                        Marker Image</a>
+    <div id="main-content" class="hidden">
+        <div class="h-screen w-full bg-white flex items-center justify-center">
+            <div
+                class="kotak box-border md:h-[80%] md:w-[60%] w-full p-4 border-4 border-gray-300 bg-grasy-200 rounded-xl bg-blue-900 shadow-lg shadow-blue-500">
+                <div class="bg-whiste py-6 sm:py-8 lg:py-12">
+                    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                        <div class="mx-auto flex max-w-xl flex-col items-center text-center">
+                            <p
+                                class="mb-4 font-semibold text-white md:mb-6 md:text-lg xl:text-xl animate__animated animate__bounceInLeft">
+                                Argumented
+                                Reality
+                                Yosa Sianipar</p>
+
+                            <!-- <h1 class="mb-8 text-3xl font-bold text-black sm:text-4xl md:mb-12 md:text-5xl">
+                                Revolutionary </h1> -->
+
+                            <body class="bg-gray-100 flex items-center justify-center h-screen">
+
+                                <div class="flex flex-col w-full lg:flex-row">
+                                    <div
+                                        class="shadow-lg shadow-blue-500 grid flex-grow h-fit card bg-white rounded-box place-items-center gap-3 p-7 animate__animated animate__zoomInLeft  ">
+
+                                        <a href="/imagetracking.html"
+                                            class="btn btn-info w-[90%] text-xl text-white  ">Image Tracking</a>
+                                        <a href="#" class="btn btn-info w-[90%] text-xl text-white  ">Marker Image</a>
+                                        <a href="/guide.html"
+                                            class="btn btn-info w-[90%] text-xl text-white  ">Guide</a>
+                                        <a href="https://drive.usercontent.google.com/download?id=1a4wSJHBAmH2P93mBs7xuPtDen7TgPqxq&export=download&authuser=1&confirm=t&uuid=e64efb78-d948-404c-826e-b57398e97861&at=APZUnTVSGTSYO3SzwwH3UyWykMhO:1717321054063"
+                                            class="btn btn-info w-[90%] text-xl text-white  ">Marker</a>
+                                        <a href="/about.html"
+                                            class="btn btn-info w-[90%] text-xl text-white  ">About</a>
+
+                                    </div>
+                                    <div class="divider divider-accent lg:divider-horizontal"></div>
+                                    <div
+                                        class="grid flex-grow-0 h-fit card bg-sbase-300 rounded-box place-items-center animate__animated animate__zoomInRight ">
+                                        <div class="shadow-lg shadow-green-500 grid flex-grow h-72 w-40 card bg-white rounded-box place-items-center gap-3 p-7 justify-center bg-cover bg-center"
+                                            style="background-image: url(./img/fra.png)">
+
+                                            sa
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </div>
                 </div>
 
+                <!-- <div class="text-center gap-2">
+                    <a href=" https://github.com/vianpr0/Augmented-Reality/tree/imagetraking/Object/imagetraking"
+                        target="_blank"
+                        class="inline-block rounded-lg bg-green-600 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
+                        Scan image
+                        untuk Image Tracking</a>
+                    <a href="https://github.com/vianpr0/Augmented-Reality/tree/imagetraking/marker/markimg"
+                        target="_blank"
+                        class="inline-block rounded-lg mt-5 bg-green-600 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
+                        Scan image untuk
+                        Image Marker</a>
+
+                </div> -->
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                document.getElementById("splash-screen").classList.add("animate__animated", "animate__zoomOutUp");
+            }, 3000); // 2000 milliseconds = 2 seconds
 
-    <div class="text-center gap-2">
-        <a href=" https://github.com/vianpr0/Augmented-Reality/tree/imagetraking/Object/imagetraking" target="_blank"
-            class="inline-block rounded-lg bg-green-600 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
-            Scan image
-            untuk Image Tracking</a>
-        <a href="https://github.com/vianpr0/Augmented-Reality/tree/imagetraking/marker/markimg" target="_blank"
-            class="inline-block rounded-lg mt-5 bg-green-600 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
-            Scan image untuk
-            Image Marker</a>
-
-    </div>
+            setTimeout(function () {
+                document.getElementById("splash-screen").classList.add("hidden");
+                document.getElementById("main-content").classList.remove("hidden");
+            }, 4000); // 3000 milliseconds = 3 seconds
+        });
+    </script>
 </body>
 
 </html>
