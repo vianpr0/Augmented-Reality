@@ -8,5 +8,8 @@ Selamat datang di Proyek Web AR.js! Repositori ini berisi code untuk aplikasi au
 # Download Marker 
 https://drive.google.com/file/d/1a4wSJHBAmH2P93mBs7xuPtDen7TgPqxq/view?usp=sharing
 
+# Object 3d
+Setelah objek muncul , objek bisa di geser menggunakan cursor
+
 # Kartu Identitas
 ![Teks Alt](https://raw.githubusercontent.com/vianpr0/Augmented-Reality/imagetraking/Object/imgTrackingnew/1.png)
