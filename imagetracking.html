@@ -1,192 +1,392 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/alpinejs" defer></script>
-    <!-- <style>
-        [x-cloak] {
-            display: none
-        }
-    </style> -->
+    <style>
+      [x-cloak] {
+        display: none;
+      }
+      body {
+        background-color: #1a202c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      img {
+        width: 200px;
+      }
+      .absolute {
+        position: absolute;
+      }
+      .top-20 {
+        top: 20px;
+      }
+      .left-70 {
+        left: 70px;
+      }
+      .p-4 {
+        padding: 1rem;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .bg-blue-500 {
+        background-color: #4299e1;
+      }
+      .hover-bg-blue-700:hover {
+        background-color: #2b6cb0;
+      }
+      .text-white {
+        color: #fff;
+      }
+      .font-bold {
+        font-weight: bold;
+      }
+      .py-2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .rounded {
+        border-radius: 0.25rem;
+      }
+      .block {
+        display: block;
+      }
+      .text-3xl {
+        font-size: 1.875rem;
+      }
+      .invisible {
+        visibility: hidden;
+      }
+      .custom-font {
+        font-family: Arial, sans-serif;
+        z-index: 9999;
+      }
+      .back-button {
+        z-index: 1000;
+      }
+      .bottom-20 {
+        bottom: 20px;
+      }
+      .mr-2 {
+        margin-right: 0.5rem;
+      }
+      .bg-yellow-500 {
+        background-color: #ecc94b;
+      }
+      .hover-bg-yellow-700:hover {
+        background-color: #d69e2e;
+      }
+      .z-index-high {
+        z-index: 1000;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-</head>
+  </head>
 
-<body class="bg-gray-900 flex items-center justify-center min-h-screen z-50">
+  <body>
     <!-- Kontainer untuk UI -->
-    <div class="absolute top-20 left-70 p-4 text-center justify-center">
-        <!-- Tombol untuk menambahkan objek AR -->
-        <button class="bg-blue-500 hover:bg-blue-700 text-center text-white font-bold py-2 px-4 rounded">
-            <h1 x-data="{
-            startingAnimation: { opacity: 0, scale: 4 },
-            endingAnimation: { opacity: 1, scale: 1, stagger: 0.07, duration: 1, ease: 'expo.out' },
-            addCNDScript: true,
-            animateText() {
-            $el.classList.remove('invisible');
-            gsap.fromTo($el.children, this.startingAnimation, this.endingAnimation);
-            },
-            splitCharactersIntoSpans(element) {
-            text = element.innerHTML;
-            modifiedHTML = [];
-            for (var i = 0; i < text.length; i++) {
-            attributes = '';
-            if(text[i].trim()){ attributes = 'class=\'inline-block\''; }
-            modifiedHTML.push('<span ' + attributes + '>' + text[i] + '</span>');
-            }
-            element.innerHTML = modifiedHTML.join('');
-            },
-            addScriptToHead(url) {
-            script = document.createElement('script');
-            script.src = url;
-            document.head.appendChild(script);
-            }
-            }" x-init="
-            splitCharactersIntoSpans($el);
-            if(addCNDScript){
-            addScriptToHead('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js');
-            }
-            gsapInterval = setInterval(function(){
-            if(typeof gsap !== 'undefined'){
-            animateText();
-            clearInterval(gsapInterval);
-            }
-            }, 5);
-            " class="invisible block text-3xl font-bold custom-font">
-                Scan Marker AR
-            </h1>
-        </button>
-        <!-- Contoh menu dropdown -->
+    <div class="absolute top-20 left-7s0 p-4 text-center justify-center">
+      <img
+        class="mx-austo mst-5 animate__animated animate__bounceInDown w-10 bg-reSd-500"
+        src="./img/logoa.png"
+        alt=""
+      />
 
+      <!-- Contoh menu dropdown -->
     </div>
-    <div class="back-button absolute bottom-20 left-70 p-4 text-center justify-center">
-        <!-- Tombol untuk menambahkan objek AR -->
-        <a href="https://drive.usercontent.google.com/download?id=1a4wSJHBAmH2P93mBs7xuPtDen7TgPqxq&export=download&authuser=1&confirm=t&uuid=e64efb78-d948-404c-826e-b57398e97861&at=APZUnTVSGTSYO3SzwwH3UyWykMhO:1717321054063"
-            class="mr-2 back-button  bg-blue-500 hover:bg-blue-700 text-center text-white font-bold py-2 overla px-4 text-clip rounded">
-            Download Marker
-        </a>
-        <a href="/"
-            class="back-button  bg-yellow-500 hover:bg-blue-700 text-center text-white font-bold py-2 overla px-4 text-clip rounded">
-            Kembali
-        </a>
-        <!-- Contoh menu dropdown -->
-
+    <div
+      class="back-button absolute bottom-20 left-70 p-4 text-center justify-center"
+    >
+      <!-- Tombol untuk menambahkan objek AR -->
+      <a
+        href="https://drive.usercontent.google.com/download?id=1a4wSJHBAmH2P93mBs7xuPtDen7TgPqxq&export=download&authuser=1&confirm=t&uuid=e64efb78-d948-404c-826e-b57398e97861&at=APZUnTVSGTSYO3SzwwH3UyWykMhO:1717321054063"
+        class="mr-2 back-button bg-blue-500 hover-bg-blue-700 text-center text-white font-bold py-2 overla px-4 text-clip rounded"
+      >
+        Download Marker
+      </a>
+      <a
+        href="/"
+        class="back-button bg-yellow-500 hover-bg-yellow-700 text-center text-white font-bold py-2 overla px-4 text-clip rounded"
+      >
+        Kembali
+      </a>
+      <!-- Contoh menu dropdown -->
     </div>
     <style>
-        .back-button {
-            z-index: 1000;
-        }
+      .back-button {
+        z-index: 1000;
+      }
+      .z {
+        z-index: 1000;
+      }
     </style>
     <!-- <button class="back-button" onclick="goBack()">Kembali</button> -->
 
     <!-- A-Frame Scene -->
-    <a-scene mindar-image="imageTargetSrc: /Object/mind/proxc.mind;  maxTrack: 8" color-space="sRGB"
-        renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
-        device-orientation-permission-ui="enabled: false">
+    <a-scene
+      mindar-image="imageTargetSrc: /Object/mind/proxc.mind;  maxTrack: 8"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
+      <!-- Aset Model 3D -->
+      <a-assets>
+        <a-asset-item id="board" src="/Object/Boat.glb"></a-asset-item>
+        <a-asset-item id="eart" src="/Object/Earth.glb"></a-asset-item>
+        <a-asset-item id="car" src="/Object/car.glb"></a-asset-item>
+        <a-asset-item id="diamon" src="/Object/Diamond.glb"></a-asset-item>
+        <a-asset-item id="ekor" src="/Object/ekor.glb"></a-asset-item>
+        <a-asset-item id="monkey" src="/Object/Monkey.glb"></a-asset-item>
+        <a-asset-item id="piramid" src="/Object/Pyramid.glb"></a-asset-item>
+        <a-asset-item id="teko" src="/Object/teko.glb"></a-asset-item>
+        <!-- Tambahkan aset model 3D lainnya sesuai dengan kebutuhan -->
+        <a-asset-item id="ak47" src="/Object/glb new/ak47.glb"></a-asset-item>
+        <a-asset-item id="awp" src="/Object/glb new/awp.glb"></a-asset-item>
+        <a-asset-item
+          id="bombc4"
+          src="/Object/glb new/bombc4.glb"
+        ></a-asset-item>
+        <a-asset-item id="axe" src="/Object/glb new/axe.glb"></a-asset-item>
+        <a-asset-item
+          id="fab-500"
+          src="/Object/glb new/fab-500.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="hammer"
+          src="/Object/glb new/hammer.glb"
+        ></a-asset-item>
+        <a-asset-item id="m4a1" src="/Object/glb new/m4a1.glb"></a-asset-item>
+        <a-asset-item id="m4a4" src="/Object/glb new/m4a4.glb"></a-asset-item>
+        <a-asset-item
+          id="pistol"
+          src="/Object/glb new/pistol.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="spanner"
+          src="/Object/glb new/spanner.glb"
+        ></a-asset-item>
+      </a-assets>
 
-        <!-- Aset Model 3D -->
-        <a-assets>
-            <a-asset-item id="board" src="/Object/Boat.glb"></a-asset-item>
-            <a-asset-item id="eart" src="/Object/Earth.glb"></a-asset-item>
-            <a-asset-item id="car" src="/Object/car.glb"></a-asset-item>
-            <a-asset-item id="diamon" src="/Object/Diamond.glb"></a-asset-item>
-            <a-asset-item id="ekor" src="/Object/ekor.glb"></a-asset-item>
-            <a-asset-item id="monkey" src="/Object/Monkey.glb"></a-asset-item>
-            <a-asset-item id="piramid" src="/Object/Pyramid.glb"></a-asset-item>
-            <a-asset-item id="teko" src="/Object/teko.glb"></a-asset-item>
-            <!-- Tambahkan aset model 3D lainnya sesuai dengan kebutuhan -->
-            <a-asset-item id="ak47" src="/Object/glb new/ak47.glb"></a-asset-item>
-            <a-asset-item id="awp" src="/Object/glb new/awp.glb"></a-asset-item>
-            <a-asset-item id="bombc4" src="/Object/glb new/bombc4.glb"></a-asset-item>
-            <a-asset-item id="axe" src="/Object/glb new/axe.glb"></a-asset-item>
-            <a-asset-item id="fab-500" src="/Object/glb new/fab-500.glb"></a-asset-item>
-            <a-asset-item id="hammer" src="/Object/glb new/hammer.glb"></a-asset-item>
-            <a-asset-item id="m4a1" src="/Object/glb new/m4a1.glb"></a-asset-item>
-            <a-asset-item id="m4a4" src="/Object/glb new/m4a4.glb"></a-asset-item>
-            <a-asset-item id="pistol" src="/Object/glb new/pistol.glb"></a-asset-item>
-            <a-asset-item id="spanner" src="/Object/glb new/spanner.glb"></a-asset-item>
+      <!-- Kamera -->
+      <a-camera
+        position="0 0 0"
+        class="z"
+        look-controls="enabled: true"
+      ></a-camera>
 
-
-        </a-assets>
-
-        <!-- Kamera -->
-        <a-camera position="0 0 0" look-controls="enabled: true"></a-camera>
-
-        <!-- Sumber Cahaya -->
-        <!-- <a-light type="ambient" color="#ffffff" intensity="0.5"></a-light>
+      <!-- Sumber Cahaya -->
+      <!-- <a-light type="ambient" color="#ffffff" intensity="0.5"></a-light>
         <a-light type="directional" color="#ffffff" intensity="0.5" position="-1 2 1"></a-light> -->
 
-        <!-- Objek AR -->
-        <a-entity mindar-image-target="targetIndex: 0">
-            <a-text value="Yos Sianipar" position="0 0 1" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
-        <a-entity mindar-image-target="targetIndex: 1">
-            <a-gltf-model rotation="0 0 0 " position="0 0.3 0" scale="3 3 3" src="#ak47" animation-mixer></a-gltf-model>
-            <a-text value="AK47" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
-        <a-entity mindar-image-target="targetIndex: 2">
-            <a-gltf-model rotation="0 0 0 " position="0 0.3 0" scale="2 2 2" src="#awp" animation-mixer></a-gltf-model>
-            <a-text value="AWP" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
-        <a-entity mindar-image-target="targetIndex: 3">
-            <a-gltf-model rotation="0 0 0 " position="0 0.3 0" scale="2 2 2" src="#m4a4" animation-mixer></a-gltf-model>
-            <a-text value="M4A4" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
-        <a-entity mindar-image-target="targetIndex: 4">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="3 3 3" src="#hammer"
-                animation-mixer></a-gltf-model>
-            <a-text value="HAMMER" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
-        <a-entity mindar-image-target="targetIndex: 5">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#bombc4"
-                animation-mixer></a-gltf-model>
-            <a-text value="BOMC4" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
-        <a-entity mindar-image-target="targetIndex: 6">
-            <a-gltf-model rotation="0 0 0 " position="0 0.3 0" scale="6 6 6" src="#fab-500"
-                animation-mixer></a-gltf-model>
-            <a-text value="FAB 500" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
-        <a-entity mindar-image-target="targetIndex: 7">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="3 3 3" src="#m4a1"
-                animation-mixer></a-gltf-model>
-            <a-text value="M4A1" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
-        <a-entity mindar-image-target="targetIndex: 8">
-            <a-gltf-model rotation="0 0 0 " position="0 0.4 0" scale="5 5 5" src="#pistol"
-                animation-mixer></a-gltf-model>
-            <a-text value="PISTOL" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
-        <a-entity mindar-image-target="targetIndex: 9">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="3 3 3" src="#spanner"
-                animation-mixer></a-gltf-model>
-            <a-text value="SPANNER" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
+      <!-- Objek AR -->
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-text
+          value="Yos Sianipar"
+          position="0 0 1"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 1">
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 0.3 0"
+          scale="3 3 3"
+          src="#ak47"
+          animation-mixer
+        ></a-gltf-model>
+        <a-text
+          value="AK47"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 2">
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 0.3 0"
+          scale="2 2 2"
+          src="#awp"
+          animation-mixer
+        ></a-gltf-model>
+        <a-text
+          value="AWP"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 3">
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 0.3 0"
+          scale="2 2 2"
+          src="#m4a4"
+          animation-mixer
+        ></a-gltf-model>
+        <a-text
+          value="M4A4"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 4">
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 -0.25 0"
+          scale="3 3 3"
+          src="#hammer"
+          animation-mixer
+        ></a-gltf-model>
+        <a-text
+          value="HAMMER"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 5">
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 -0.25 0"
+          scale="1 1 1"
+          src="#bombc4"
+          animation-mixer
+        ></a-gltf-model>
+        <a-text
+          value="BOMC4"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 6">
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 0.3 0"
+          scale="6 6 6"
+          src="#fab-500"
+          animation-mixer
+        ></a-gltf-model>
+        <a-text
+          value="FAB 500"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 7">
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 -0.25 0"
+          scale="3 3 3"
+          src="#m4a1"
+          animation-mixer
+        ></a-gltf-model>
+        <a-text
+          value="M4A1"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 8">
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 0.4 0"
+          scale="5 5 5"
+          src="#pistol"
+          animation-mixer
+        ></a-gltf-model>
+        <a-text
+          value="PISTOL"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 9">
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 -0.25 0"
+          scale="3 3 3"
+          src="#spanner"
+          animation-mixer
+        ></a-gltf-model>
+        <a-text
+          value="SPANNER"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
 
-        <a-entity mindar-image-target="targetIndex: 10">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="3 3 3" src="#axe"
-                animation-mixer></a-gltf-model>
-            <a-text value="AXE" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
+      <a-entity mindar-image-target="targetIndex: 10">
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 -0.25 0"
+          scale="3 3 3"
+          src="#axe"
+          animation-mixer
+        ></a-gltf-model>
+        <a-text
+          value="AXE"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
 
-        <a-entity mindar-image-target="targetIndex: 11">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.5 0.5 0.5" src="#eart"
-                animation-mixer></a-gltf-model>
-            <a-text value="EART" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
-        <a-entity mindar-image-target="targetIndex: 12">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="5 5 5" src="#diamon"
-                animation-mixer></a-gltf-model>
-            <a-text value="DIAMOND" position="0 0.5 0" align="center" color="#FFFFFF"></a-text>
-        </a-entity>
+      <a-entity mindar-image-target="targetIndex: 11">
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 -0.25 0"
+          scale="0.5 0.5 0.5"
+          src="#eart"
+          animation-mixer
+        ></a-gltf-model>
+        <a-text
+          value="EART"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 12">
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 -0.25 0"
+          scale="5 5 5"
+          src="#diamon"
+          animation-mixer
+        ></a-gltf-model>
+        <a-text
+          value="DIAMOND"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity>
 
-
-        <!-- Box 3D -->
-        <!-- <a-box position="1 0 -2" depth="1" height="1" width="1" color="red"></a-box> -->
-
+      <!-- Box 3D -->
+      <!-- <a-box position="1 0 -2" depth="1" height="1" width="1" color="red"></a-box> -->
     </a-scene>
-</body>
-
+  </body>
 </html>
