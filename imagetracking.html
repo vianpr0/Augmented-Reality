@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
     <script src="https://unpkg.com/alpinejs" defer></script>
     <style>
       [x-cloak] {
@@ -93,6 +94,23 @@
         text-decoration: none;
       }
     </style>
+    <script>
+      AFRAME.registerComponent("delay-show", {
+        init: function () {
+          const model = document.querySelector("#awp");
+          const text = document.querySelector("#awp-text");
+
+          // Delay the visibility
+          setTimeout(() => {
+            model.setAttribute("visible", "true");
+            text.setAttribute("visible", "true");
+          }, 1000); // 1000 milliseconds = 1 second
+        },
+      });
+
+      // Add the component to the entity
+      document.querySelector("a-entity").setAttribute("delay-show", "");
+    </script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
@@ -134,11 +152,12 @@
         z-index: 1000;
       }
     </style>
+
     <!-- <button class="back-button" onclick="goBack()">Kembali</button> -->
 
     <!-- A-Frame Scene -->
     <a-scene
-      mindar-image="imageTargetSrc: /Object/mind/proxc.mind;  maxTrack: 8"
+      mindar-image="imageTargetSrc: /Object/mind/proxc.mind; maxTrack: 8"
       color-space="sRGB"
       renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false"
@@ -190,17 +209,30 @@
       ></a-camera>
 
       <!-- Sumber Cahaya -->
-      <!-- <a-light type="ambient" color="#ffffff" intensity="0.5"></a-light>
-        <a-light type="directional" color="#ffffff" intensity="0.5" position="-1 2 1"></a-light> -->
+      <a-light type="ambient" color="#ffffff" intensity="0.5"></a-light>
+      <a-light
+        type="directional"
+        color="#ffffff"
+        intensity="0.5"
+        position="-1 2 1"
+      ></a-light>
 
       <!-- Objek AR -->
       <a-entity mindar-image-target="targetIndex: 0">
         <a-text
           value="Yos Sianipar"
-          position="0 0.5 0"
+          position="0 0.3 0"
           align="center"
           color="#FFFFFF"
         ></a-text>
+        <a-plane
+          position="0 -0.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/yosa.png"
+          visible="true"
+        ></a-plane>
       </a-entity>
       <a-entity mindar-image-target="targetIndex: 1">
         <a-gltf-model
@@ -210,6 +242,14 @@
           src="#ak47"
           animation-mixer
         ></a-gltf-model>
+        <a-plane
+          position="0 -0.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/ak47.png"
+          visible="true"
+        ></a-plane>
         <a-text
           value="AK47"
           position="0 0.5 0"
@@ -217,14 +257,46 @@
           color="#FFFFFF"
         ></a-text>
       </a-entity>
-      <a-entity mindar-image-target="targetIndex: 2">
+      <!-- <a-entity mindar-image-target="targetIndex: 2">
         <a-gltf-model
-          rotation="0 30 0 "
+          rotation="0 30 0"
           position="0 0.3 0"
-          scale="1.5 1.5 1.5"
+          scale="1 1 1"
           src="#awp"
           animation-mixer
         ></a-gltf-model>
+        <a-plane
+          position="0 -0.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/3.png"
+        ></a-plane>
+        <a-text
+          value="AWP"
+          position="0 0.5 0"
+          align="center"
+          color="#FFFFFF"
+        ></a-text>
+      </a-entity> -->
+      <a-entity mindar-image-target="targetIndex: 2">
+        <a-gltf-model
+          rotation="0 30 0"
+          position="0 0.3 0"
+          scale="1 1 1"
+          src="#awp"
+          animation-mixer
+          visible="true"
+          animation="property: visible; to: true; delay: 1000"
+        ></a-gltf-model>
+        <a-plane
+          position="0 -0.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/awp.png"
+          visible="true"
+        ></a-plane>
         <a-text
           value="AWP"
           position="0 0.5 0"
@@ -234,9 +306,9 @@
       </a-entity>
       <a-entity mindar-image-target="targetIndex: 3">
         <a-gltf-model
-          rotation="0 0 0 "
+          rotation="0 30 0 "
           position="0 0.3 0"
-          scale="2 2 2"
+          scale="1 1 1"
           src="#m4a4"
           animation-mixer
         ></a-gltf-model>
@@ -246,6 +318,14 @@
           align="center"
           color="#FFFFFF"
         ></a-text>
+        <a-plane
+          position="0 0 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/m4a4.png"
+          visible="true"
+        ></a-plane>
       </a-entity>
       <a-entity mindar-image-target="targetIndex: 4">
         <a-gltf-model
@@ -261,12 +341,20 @@
           align="center"
           color="#FFFFFF"
         ></a-text>
+        <a-plane
+          position="0 -0.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/hammer.png"
+          visible="true"
+        ></a-plane>
       </a-entity>
       <a-entity mindar-image-target="targetIndex: 5">
         <a-gltf-model
           rotation="0 0 0 "
-          position="0 -0.25 0"
-          scale="1 1 1"
+          position="0 0.25 0"
+          scale="0.8 0.8 0.8"
           src="#bombc4"
           animation-mixer
         ></a-gltf-model>
@@ -276,6 +364,14 @@
           align="center"
           color="#FFFFFF"
         ></a-text>
+        <a-plane
+          position="0 -0.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/moomc4.png"
+          visible="true"
+        ></a-plane>
       </a-entity>
       <a-entity mindar-image-target="targetIndex: 6">
         <a-gltf-model
@@ -291,6 +387,14 @@
           align="center"
           color="#FFFFFF"
         ></a-text>
+        <a-plane
+          position="0 -0.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/fab.png"
+          visible="true"
+        ></a-plane>
       </a-entity>
       <a-entity mindar-image-target="targetIndex: 7">
         <a-gltf-model
@@ -306,11 +410,19 @@
           align="center"
           color="#FFFFFF"
         ></a-text>
+        <a-plane
+          position="0 -0.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/m4a1.png"
+          visible="true"
+        ></a-plane>
       </a-entity>
       <a-entity mindar-image-target="targetIndex: 8">
         <a-gltf-model
-          rotation="0 90 0 "
-          position="-0.3 0.5 0"
+          rotation="0 30 0 "
+          position="-0.1 0.5 0"
           scale="3 3 3"
           src="#pistol"
           animation-mixer
@@ -321,10 +433,18 @@
           align="center"
           color="#FFFFFF"
         ></a-text>
+        <a-plane
+          position="0 -0.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/pistol.png"
+          visible="true"
+        ></a-plane>
       </a-entity>
       <a-entity mindar-image-target="targetIndex: 9">
         <a-gltf-model
-          rotation="0 0 0 "
+          rotation="90 90 90 "
           position="0 -0.25 0"
           scale="3 3 3"
           src="#spanner"
@@ -336,6 +456,14 @@
           align="center"
           color="#FFFFFF"
         ></a-text>
+        <a-plane
+          position="0 -0.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/spanner.png"
+          visible="true"
+        ></a-plane>
       </a-entity>
 
       <a-entity mindar-image-target="targetIndex: 10">
@@ -352,6 +480,14 @@
           align="center"
           color="#FFFFFF"
         ></a-text>
+        <a-plane
+          position="0 -0.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/aaxe.png"
+          visible="true"
+        ></a-plane>
       </a-entity>
 
       <a-entity mindar-image-target="targetIndex: 11">
@@ -362,6 +498,14 @@
           src="#eart"
           animation-mixer
         ></a-gltf-model>
+        <a-plane
+          position="0 0.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/eart.png"
+          visible="true"
+        ></a-plane>
         <a-text
           value="EART"
           position="0 0.5 0"
@@ -383,6 +527,14 @@
           align="center"
           color="#FFFFFF"
         ></a-text>
+        <a-plane
+          position="0 -0.50.5 0"
+          rotation="-90 0 0"
+          width="1"
+          height="1"
+          material="src: ./Object/imgTrackingnew/diamon.png"
+          visible="true"
+        ></a-plane>
       </a-entity>
 
       <!-- Box 3D -->
