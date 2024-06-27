@@ -12,4 +12,4 @@ https://drive.google.com/file/d/1a4wSJHBAmH2P93mBs7xuPtDen7TgPqxq/view?usp=shari
 Setelah objek muncul , objek bisa di geser menggunakan cursor
 
 # Kartu Identitas
-![Teks Alt](https://raw.githubusercontent.com/vianpr0/Augmented-Reality/imagetraking/Object/imgTrackingnew/1.png](https://raw.githubusercontent.com/vianpr0/Augmented-Reality/imagetraking/Object/imgTrackingnew/yosa.png)
+![Teks Alt]([https://raw.githubusercontent.com/vianpr0/Augmented-Reality/imagetraking/Object/imgTrackingnew/yosa.png])
