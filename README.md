@@ -13,3 +13,14 @@ Setelah objek muncul , objek bisa di geser menggunakan cursor
 
 # Kartu Identitas
 ![Teks Alt](https://raw.githubusercontent.com/vianpr0/Augmented-Reality/imagetraking/Object/imgTrackingnew/yosa.png)
+
+# Main
+![Teks Alt](https://raw.githubusercontent.com/vianpr0/Augmented-Reality/imagetraking/img/home.png)
+
+
+![Teks Alt](https://raw.githubusercontent.com/vianpr0/Augmented-Reality/imagetraking/img/fawp.jpg)
+![Teks Alt](https://raw.githubusercontent.com/vianpr0/Augmented-Reality/imagetraking/img/faxe.jpg)
+![Teks Alt](https://raw.githubusercontent.com/vianpr0/Augmented-Reality/imagetraking/img/feart.jpg)
+
+
+
